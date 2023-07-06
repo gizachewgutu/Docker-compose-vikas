@@ -4,16 +4,21 @@ start the service of docker --service docker start    then ----service docker st
 if you want the machine run as worker node run the command from master out put you get when you rumn master docker swarm init
 example: -----docker swarm join --token SWMTKN-1-14ci14rqzu3z1wlm81ihiexsnj4dtylwn0r52ta17t96e1mu12-8hyl2qzzinc7mvixu4lvz9j72 172.31.3.111:2377
 
-
+==========================
 docker node ls
 docker service ls
+======================
+               docker swar visualize has to be install what runing and where running 
 docker run -it -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock dockersamples/visualizer
+===============================================
 docker ps -a
 docker service create --name nginxweb -p 8081:80 nginx
 docker service create --name nginxweb1 -p 8082:80 --replicas 5 nginx
 docker service ps nginxweb1
 docker service scale nginxweb1=7
 docker service scale nginxweb1=1
-docker node update --availability drain docker
-docker node update --availability active docker
+==================================================== drain means if crush one of the container 
+docker node update --availability drain <Hostname>
+docker node update --availability active <Hostname>
+===========================================================
 docker node ls
