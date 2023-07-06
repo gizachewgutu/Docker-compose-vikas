@@ -1,4 +1,10 @@
-docker swarm init add what you get to worker node --open the port
+docker swarm init ------add what you get to worker node --open the port by 2377 on ec2-instance for inbound traffic
+install docker in worker node -yum install docker
+start the service of docker --service docker start    then ----service docker status---
+if you want the machine run as worker node run the command from master out put you get when you rumn master docker swarm init
+example: -----docker swarm join --token SWMTKN-1-14ci14rqzu3z1wlm81ihiexsnj4dtylwn0r52ta17t96e1mu12-8hyl2qzzinc7mvixu4lvz9j72 172.31.3.111:2377
+
+
 docker node ls
 docker service ls
 docker run -it -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock dockersamples/visualizer
